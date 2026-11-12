@@ -21,6 +21,13 @@
 # inherit from msm8916-common
 include device/huawei/msm8916-common/BoardConfigCommon.mk
 
+# 将 ramdisk 偏移量显式传递给 mkbootimg
+BOARD_MKBOOTIMG_ARGS += --base $(BOARD_KERNEL_BASE)
+BOARD_MKBOOTIMG_ARGS += --pagesize $(BOARD_KERNEL_PAGESIZE)
+BOARD_MKBOOTIMG_ARGS += --ramdisk_offset $(BOARD_RAMDISK_OFFSET)
+BOARD_MKBOOTIMG_ARGS += --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
+#BOARD_MKBOOTIMG_ARGS += --second_offset $(BOARD_SECOND_OFFSET)
+
 DEVICE_PATH := device/huawei/cherry
 
 # Assert
